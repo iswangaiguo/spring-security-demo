@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.imooc.web.filter.TimeFilter;
 import com.imooc.web.interceptor.TimeInterceptor;
 
-@Configuration
+//@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter{
 
 	

@@ -87,10 +87,11 @@ public class UserControllerTest {
 
 	@Test
 	public void whenUploadSuccess() throws UnsupportedEncodingException, Exception {
-		mockMvc.perform(fileUpload("/file").
+		String result = mockMvc.perform(fileUpload("/file").
 				file(new MockMultipartFile("file", "test.txt", "multipart/form-data", "hello".getBytes("UTF-8"))))
-				.andExpect(status().isOk());
-				
+				.andExpect(status().isOk())
+				.andReturn().getResponse().getContentAsString();
+		System.out.println(result);		
 	}
 	
 	
