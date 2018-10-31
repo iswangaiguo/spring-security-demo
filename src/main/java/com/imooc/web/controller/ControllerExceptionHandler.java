@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.imooc.exception.UserNotExistException;
+
 @ControllerAdvice
 public class ControllerExceptionHandler {
 

@@ -1,4 +1,4 @@
-package com.imooc.web.controller;
+package com.imooc.exception;
 
 public class UserNotExistException extends RuntimeException{
 

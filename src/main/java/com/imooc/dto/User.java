@@ -9,8 +9,11 @@ import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.imooc.validator.MyConstraint;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class User {
-	
+
+	@ApiModelProperty(value = "用户的id")
 	private  String id;
 	
 	@MyConstraint(message = "这是一个测试")
