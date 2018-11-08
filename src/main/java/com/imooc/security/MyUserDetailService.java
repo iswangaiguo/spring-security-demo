@@ -21,12 +21,14 @@ public class MyUserDetailService implements UserDetailsService, SocialUserDetail
 	@Autowired 
 	PasswordEncoder passwordEncoder;
 	
+	//表单用户登陆的时候用的
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		logger.info("表单登陆用户名: " + username);
 		return buildUser(username);
 	}
 
+	//社交登陆的时候用的，传进来的是根据社交用户的open—id查出来的userid
 	@Override
 	public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
 		logger.info("社交用户登陆Id: " + userId);
@@ -39,7 +41,7 @@ public class MyUserDetailService implements UserDetailsService, SocialUserDetail
 		//根据查找到的用户信息判断用户是否被冻结
 		String password = passwordEncoder.encode("123456");
 		logger.info("数据库密码是:" + password);
-		return new SocialUser(userId, passwordEncoder.encode("123456"), true, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+		return new SocialUser(userId, password, true, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
 	}
 	
 
